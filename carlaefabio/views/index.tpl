@@ -141,17 +141,21 @@
           </div>
           <div class="row-fluid">
             <div>
-              <form id="rsvp_form">
+              <form id="rsvp_form" method=post action="/">
                 <legend>RSVP</legend>
                 <div class="row-fluid" id="p-0">
                   <label>Nome</label>
-                  <input type="text" placeholder="Conforme escrito no convite">
+                  <input type="text" name="nome-0" placeholder="">
+                  <label>Telefone</label>
+                  <input type="text" name="telefone" placeholder="">
+                  <label>E-mail</label>
+                  <input type="text" name="email" placeholder="">
                   <label class="presenca_radio">
-                    <input type="radio" name="presenca" id="confirma_radio" value="false" checked>
+                    <input type="radio" name="presenca" id="confirma_radio" value="true" checked>
                     Confirmo a presença
                   </label>
                   <label class="presenca_radio">
-                    <input type="radio" name="presenca" id="nao_confirma_radio" value="true">
+                    <input type="radio" name="presenca" id="nao_confirma_radio" value="false">
                     Não poderei comparecer ;_;
                   </label>
                 </div>
@@ -215,7 +219,10 @@
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newElem = $('#p-0').clone().attr('id', 'p-' + num);
                 newElem.children('.presenca_radio').remove()
+                newElem.children('input').not(":first").remove();
+                newElem.children('label').not(":first").remove();
                 newElem.children('input').attr('placeholder', '').val('');
+                newElem.children('input').attr('name', 'nome-' + num);
                 newElem.append('<a href="#1">Remover convidado</a>');
                 newElem.children('a').click(function(){ $(this).parent().remove(); })
                 $('#p-'+last_num).after(newElem);

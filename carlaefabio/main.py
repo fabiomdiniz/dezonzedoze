@@ -28,13 +28,33 @@
 #    main()
 
 import bottle
-from bottle import route, run, template
+from bottle import route, run, template, request
+
+from google.appengine.ext import db
 
 bottle.debug(True)
+
+class Convidado(db.Model):
+    nome = db.StringProperty()
+    email = db.StringProperty()
+    telefone = db.StringProperty()
+    presenca = db.BooleanProperty()
+    date = db.DateTimeProperty(auto_now_add=True)
+    acompanhantes = db.ListProperty(str)
 
 @route('/')
 def index():
     return template('index')
+
+@route('/', method='POST')
+def rsvp():
+    convidado = Convidado(nome=request.forms['nome-0'],
+                          email=request.forms['email'],
+                          telefone=request.forms['telefone'],
+                          presenca=request.forms['presenca']=='true',
+                          acompanhantes=[v for k, v in request.forms.items() if 'nome' in k and k != 'nome-0'])
+    convidado.put()
+    return index()
 
 # ... build or import your bottle application here ...
 run(server='gae')
