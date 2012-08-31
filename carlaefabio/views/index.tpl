@@ -140,37 +140,27 @@
             <p><a class="btn btn-primary btn-large">Learn more </a></p>
           </div>
           <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
+            <div>
+              <form id="rsvp_form">
+                <legend>RSVP</legend>
+                <div class="row-fluid" id="p-0">
+                  <label>Nome</label>
+                  <input type="text" placeholder="Conforme escrito no convite">
+                  <label class="presenca_radio">
+                    <input type="radio" name="presenca" id="confirma_radio" value="false" checked>
+                    Confirmo a presença
+                  </label>
+                  <label class="presenca_radio">
+                    <input type="radio" name="presenca" id="nao_confirma_radio" value="true">
+                    Não poderei comparecer ;_;
+                  </label>
+                </div>
+                <ul class="nav nav-pills">
+                  <li id="link_add_convidado"><a href="#1">Adicionar convidado</a></li>
+                </ul>
+
+                <button type="submit" class="btn">Enviar</button>
+              </form>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
@@ -195,7 +185,6 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       $(function(){
-
         //Setup Smooth Scrolling
         $('a.smooth').on("click",function(){
           var _target = $(this).attr('href'),
@@ -208,6 +197,32 @@
         });
 
 
+        $('.presenca_radio').click(function() {           
+            if($("#confirma_radio").is(':checked'))  {
+                $("#link_add_convidado").removeClass('disabled');
+            } else {                              
+                $("#link_add_convidado").addClass('disabled');
+                $("#rsvp_form div:not(:first)").remove();
+            }
+        });
+
+        $('#link_add_convidado').click(function() {
+                if($("#link_add_convidado").hasClass('disabled')){
+                  return;
+                }
+                var last_num = parseInt($("#rsvp_form div:last").attr('id').split('-')[1]);
+                var num = last_num + 1;
+                // create the new element via clone(), and manipulate it's ID using newNum value
+                var newElem = $('#p-0').clone().attr('id', 'p-' + num);
+                newElem.children('.presenca_radio').remove()
+                newElem.children('input').attr('placeholder', '').val('');
+                newElem.append('<a href="#1">Remover convidado</a>');
+                newElem.children('a').click(function(){ $(this).parent().remove(); })
+                $('#p-'+last_num).after(newElem);
+ 
+                // insert the new element after the last "duplicatable" input field
+//                $('#input' + num).after(newElem);
+            });
 
 
       });
