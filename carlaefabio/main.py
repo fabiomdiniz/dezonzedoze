@@ -31,6 +31,7 @@ import bottle
 from bottle import route, run, template, request
 
 from google.appengine.ext import db
+from google.appengine.api import mail
 
 bottle.debug(True)
 
@@ -54,6 +55,18 @@ def rsvp():
                           presenca=request.forms['presenca']=='true',
                           acompanhantes=[v for k, v in request.forms.items() if 'nome' in k and k != 'nome-0'])
     convidado.put()
+
+    sender_address = "Fábio e Carla <fabioecarla@fabioecarla.com.br>"
+    subject = "[PRESENCA]"
+    if convidado.presenca:
+      subject += "[SIM]"
+      body = """ Convidado {0} confirma presençam, com os convidados: {1}""".format(convidado.nome, ', '.join(convidado.acompanhantes))
+    else:
+      subject += "[NAO]"
+      body = """ Convidado {0} confirma ausência""".format(convidado.nome)
+    subject += convidado.nome
+    mail.send_mail("fabiomachadodiniz@gmail.com", "fabiomachadodiniz@gmail.com", subject, body)
+
     return index()
 
 # ... build or import your bottle application here ...
