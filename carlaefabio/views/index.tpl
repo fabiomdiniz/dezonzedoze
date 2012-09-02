@@ -124,7 +124,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                       </label>
                       <label class="presenca_radio">
                         <input type="radio" name="presenca" id="nao_confirma_radio" value="false">
-                          Não poderei comparecer
+                          Não poderei comparecer ;_;
                      </label>
                     </div>
 
@@ -225,14 +225,13 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                 var num = last_num + 1;
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newElem = $('#p-0').clone().attr('id', 'p-' + num);
-                newElem.find('* .presenca_radio').remove()
-                newElem.find('* input').not(":first").remove();
-                newElem.find('* label').not(":first").remove();
-                newElem.find('* input').attr('placeholder', '').val('');
-                newElem.find('* input').attr('name', 'nome-' + num);
+                newElem.children('* .presenca_radio').remove()
+                newElem.children('* input').not(":first").remove();
+                newElem.children('* label').not(":first").remove();
+                newElem.children('* input').attr('placeholder', '').val('');
+                newElem.children('* input').attr('name', 'nome-' + num);
                 newElem.append('<a href="#1">Remover convidado</a>');
                 newElem.children('a').click(function(){ $(this).parent().remove(); })
-                newElem.find('label').html("Acompanhante")
                 $('#p-'+last_num).after(newElem);
  
                 // insert the new element after the last "duplicatable" input field
