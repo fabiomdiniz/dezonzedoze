@@ -11,8 +11,11 @@
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <style type="text/css">
       body {
-        padding-top: 60px;
-        padding-bottom: 40px;
+        padding-top: 200px;
+        padding-bottom: 0px;
+        background-image: url("/static/img/bg_pattern.jpg");
+        background-repeat: repeat;
+        background-position: top left;
       }
       .sidebar-nav {
         padding: 9px 0;
@@ -35,114 +38,70 @@
 
   <body>
 
-    <div class="navbar navbar-fixed-top">
+
+    <!---- NAV BAR ---->
+    <div class="navbar navbar-fixed-top" id="header">
+
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+          <div class="row-fluid">
+            <div class="span4"></div>
+            <div class="span4">
+              <img id="logo" src="/static/img/logo.png" alt="">
+            </div>
+            <div class="span4"></div>
+          </div>
+          <div class="row-fluid">
+            <ul class="nav" style="width:100%">
+              <div class="span1"></div>
 
-              <li><a href="#about" class="smooth">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+                <div class="span2"><li class="active smooth"><a href="#evento" class="smooth">O Evento</a></li></div>
+                <div class="span2"><li class="smooth"><a href="#rsvp" class="smooth">rsvp</a></li></div>
+                <div class="span2"><img id="navbar_divisor" src="/static/img/divisor.png" style="margin-top: 8px;"></div>
+                <div class="span2"><li class="smooth"><a href="#dicas" class="smooth">Dicas</a></li></div>
+                <div class="span2"><li class="smooth"><a href="#presentes" class="smooth">Presentes</a></li></div>
+
+              <div class="span1"></div>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
+
+          <div class="row-fluid">
+            <div class="span1"></div>
+            <div class="span10 underline"></div>
+            <div class="span1"></div>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <!--
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div>
+    <div class="container-fluid" id="content">
+
+      <!---- EVENTO ---->
+      <div class="row-fluid" id="evento">
+        <div class="span1"></div>
+        <div class="span10">
+          <h1 class="title">O evento</h1>
+          <p>Após de 5 anos de namoro, o inevitável acontece: Carla e Fábio se casam no <strong>sábado, dia 10 de Novembro de 2012</strong> às <strong>15:30</strong> em Jacareí, à 100 km de São Paulo.</p>
+
+<p>A união será celebrada na <strong>Igreja Matriz de Jacareí</strong>, localizada na Praça Padre Anchieta, 92.</p>
+
+<p>Após a cerimônia religiosa, os noivos receberão os convidados</p>
         </div>
-      -->
-       <div class="span2"></div>
-
-        <div class="span8">
-          <div class="hero-unit">
-            <h1>Carla e Fábio</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-large">Learn more </a></p>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details </a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
+        <div class="span1"></div>
+      </div> <!-- Evento -->
 
 
-        <div class="span2"></div>
-      </div><!--/row-->
-
-
-<div class="span2" id="about"></div>
-
-        <div class="span8">
-          <div class="hero-unit">
-            <h1>About</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-large">Learn more </a></p>
-          </div>
-          <div class="row-fluid">
-            <div>
+      <!---- rsvp ---->
+      <div class="row-fluid" id="rsvp">
+         <div class="span1"><img class="bg_flower" id="bgflower_left1" src="/static/img/flower2.png"></div>
+        
+        <div class="span10">
+          <h1 class="title">Rsvp</h1>
+          <p>Se você recebeu um convite, é muito importante que confirme se poderá ou não comparecer, pois somente desta forma conseguiremos preparar a festa para o número correto de convidados.</p>
+          <p>Estamos fazendo tudo com muito carinho para que o nosso casamento seja um dia inesquecível que se completará com a presença de vocês lá.</p>
+          <div>
               <form id="rsvp_form" method=post action="/">
-                <legend>RSVP</legend>
                 <div class="row-fluid" id="p-0">
                   <label>Nome</label>
                   <input type="text" name="nome-0" placeholder="">
@@ -166,13 +125,35 @@
                 <button type="submit" class="btn">Enviar</button>
               </form>
             </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
+        </div>
+        <div class="span1"><img class="bg_flower" id="bgflower_right1" src="/static/img/flower2.png"></div>
+
+      </div><!--/rsvp-->
+
+      <!---- dicas ---->
+      <div class="row-fluid" id="dicas">
+        <div class="span1"></div>
+        <div class="span10">
+          <h1 class="title">Dicas</h1>
+          <p><strong>Como chegar</strong><br/>Se você não conhece Jacareí, veja este mapa</p>
+          <p><strong>Hotéis</strong><br/A festa será no salão do Hotel Piazza e os convidados que quiserem se hospedar no próprio hotel têm desconto. É só informar na hora da reserva que são convidados do casamento.</p>
+        </div>
+        <div class="span1"></div>
+      </div><!--/rsvp-->
 
 
-        <div class="span2"></div>
-      </div><!--/row-->
+    <!---- presentes ---->
+      <div class="row-fluid" id="presentes">
+        <div class="span1"></div>
+        <div class="span10">
+          <h1 class="title">Lista de Presentes</h1>
+          <p>Como todos já sabem, nós juntamos os trapos há algum tempo e já temos a casa toda montada. Por isso, decidimos deixar a Lista de Presentes em formato de cotas para a nossa <strong>Lua de Mel</strong>, que será em Porto de Galinhas, Pernambuco.</p>
+          <p>Aqui vai as cotas</p>
+          <p>Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar aqui mesmo ou por telefone.</p>
 
+        </div>
+        <div class="span1"></div>
+      </div><!--/rsvp-->
 
       <hr>
 
@@ -189,14 +170,26 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       $(function(){
+        var header_offset = 0;
+
         //Setup Smooth Scrolling
         $('a.smooth').on("click",function(){
+          if ($(window).width() >= 980 ) {
+            header_offset = $("#header").height();
+          }
+          else {
+            header_offset = 0;
+          }
           var _target = $(this).attr('href'),
             _targetElement = $(_target).offset().top;
           //$("html:not(:animated),body:not(:animated)").stop();
           $("html:not(:animated),body:not(:animated)").animate({
-            scrollTop: _targetElement - 50
+            scrollTop: _targetElement - header_offset
           },1100);
+
+          $("li").removeClass("active");
+          $(this).parent().addClass("active");
+
           return false;
         });
 

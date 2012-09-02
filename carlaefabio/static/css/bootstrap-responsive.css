@@ -204,7 +204,7 @@
     display: block;
     float: left;
     width: 100%;
-    min-height: 30px;
+    min-height: 4px;
     margin-left: 2.564102564102564%;
     *margin-left: 2.5109110747408616%;
     -webkit-box-sizing: border-box;
@@ -550,7 +550,7 @@
     display: block;
     float: left;
     width: 100%;
-    min-height: 30px;
+    min-height: 4px;
     margin-left: 2.7624309392265194%;
     *margin-left: 2.709239449864817%;
     -webkit-box-sizing: border-box;
@@ -925,7 +925,7 @@
   .navbar .brand {
     padding-right: 10px;
     padding-left: 10px;
-    margin: 0 0 0 -5px;
+    margin: 0 0 0 0px;
   }
   .nav-collapse {
     clear: both;
@@ -1037,4 +1037,8 @@
     height: auto !important;
     overflow: visible !important;
   }
+}
+
+.crl-nav li{
+  background-color: blue;
 }
