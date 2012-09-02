@@ -32,8 +32,6 @@ from bottle import route, run, template, request, view
 
 from google.appengine.ext import db
 from google.appengine.api import mail
-from google.appengine.api import users
-
 
 bottle.debug(True)
 
@@ -91,13 +89,6 @@ def rsvp():
 @route('/lista')
 @view('lista')
 def lista():
-
-  user = users.get_current_user()
-
-  if not user:
-    from bottle import redirect
-    redirect(users.create_login_url(request.url), 303)
-
   output = []
   num = 0
   if users.is_current_user_admin():
