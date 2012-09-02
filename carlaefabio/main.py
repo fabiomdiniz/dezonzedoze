@@ -28,7 +28,7 @@
 #    main()
 
 import bottle
-from bottle import route, run, template, request
+from bottle import route, run, template, request, view
 
 from google.appengine.ext import db
 from google.appengine.api import mail
@@ -44,8 +44,9 @@ class Convidado(db.Model):
     acompanhantes = db.ListProperty(str)
 
 @route('/')
-def index():
-    return template('index')
+@view('index')
+def index(post="false"):
+    return {'post':post}
 
 @route('/', method='POST')
 def rsvp():
@@ -56,18 +57,45 @@ def rsvp():
                           acompanhantes=[v for k, v in request.forms.items() if 'nome' in k and k != 'nome-0'])
     convidado.put()
 
-    sender_address = "Fábio e Carla <fabioecarla@fabioecarla.com.br>"
+    sender_address = "Carla e Fábio <carlaefabio@carlaefabio.com.br>"
     subject = "[PRESENCA]"
     if convidado.presenca:
       subject += "[SIM]"
-      body = """ Convidado {0} confirma presençam, com os convidados: {1}""".format(convidado.nome, ', '.join(convidado.acompanhantes))
+      body = """ Convidado {0} confirma presençam, com os convidados: {1}
+                 Telefone: {2}        Email: {3} """.format(convidado.nome, ', '.join(convidado.acompanhantes), convidado.telefone, convidado.email)
     else:
       subject += "[NAO]"
       body = """ Convidado {0} confirma ausência""".format(convidado.nome)
     subject += convidado.nome
-    mail.send_mail("fabiomachadodiniz@gmail.com", "fabiomachadodiniz@gmail.com", subject, body)
+    
+    mail.send_mail(sender_address, "fabiomachadodiniz@gmail.com", subject, body)
+    mail.send_mail(sender_address, sender_address, subject, body)
 
-    return index()
+    if convidado.presenca and convidado.email:
+      subject = "Confirmação de Presença"
+      body = """
+      Olá,
+
+      Obrigado por confirmar a presença em nosso casamento.
+      Caso ocorra algum imprevisto e você não possa comparecer, por favor nos avise no email: carlaefabio@carlaefabio.com.br
+
+      Abraços,
+      Carla e Fábio
+      """
+      mail.send_mail(sender_address, convidado.email, subject, body)
+
+    return index("true")
+
+@route('/lista')
+@view('lista')
+def lista():
+  output = []
+  num = 0
+  if users.is_current_user_admin():
+    for convidado in Convidado.all():
+      output.append([convidado.nome, convidado.telefone, convidado.email, ', '.join(convidado.acompanhantes)])
+      num += 1 + len(convidado.acompanhantes)
+  return {'output':output, 'num':num, 'perm':users.is_current_user_admin()}
 
 # ... build or import your bottle application here ...
 run(server='gae')
