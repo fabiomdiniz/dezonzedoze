@@ -56,7 +56,7 @@
               <div class="span1"></div>
 
                 <div class="span2"><li class="active smooth"><a href="#evento" class="smooth">O Evento</a></li></div>
-                <div class="span2"><li class="smooth"><a href="#rsvp" class="smooth">rsvp</a></li></div>
+                <div class="span2"><li class="smooth"><a href="#rsvp" class="smooth">Rsvp</a></li></div>
                 <div class="span2"><img id="navbar_divisor" src="/static/img/divisor.png" style="margin-top: 8px;"></div>
                 <div class="span2"><li class="smooth"><a href="#dicas" class="smooth">Dicas</a></li></div>
                 <div class="span2"><li class="smooth"><a href="#presentes" class="smooth">Presentes</a></li></div>
@@ -78,22 +78,23 @@
     <div class="container-fluid" id="content">
 
       <!---- EVENTO ---->
-      <div class="row-fluid" id="evento">
+      <div class="row-fluid subcontent" id="evento">
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">O evento</h1>
           <p>Após de 5 anos de namoro, o inevitável acontece: Carla e Fábio se casam no <strong>sábado, dia 10 de Novembro de 2012</strong> às <strong>15:30</strong> em Jacareí, à 100 km de São Paulo.</p>
 
-<p>A união será celebrada na <strong>Igreja Matriz de Jacareí</strong>, localizada na Praça Padre Anchieta, 92.</p>
+<p>A união será celebrada na <strong>
+Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.gl/maps/ZvN80" target='_blank'> Praça Padre Anchieta, 92.</a></p>
 
-<p>Após a cerimônia religiosa, os noivos receberão os convidados</p>
+<p>Após a cerimônia religiosa, os noivos receberão os convidados no <strong>Hotel Piazza</strong>, localizado na <a href="http://goo.gl/maps/XJhnt" target='blank'> Rua Batista Scavone, 22</a>.</p>
         </div>
         <div class="span1"></div>
       </div> <!-- Evento -->
 
 
       <!---- rsvp ---->
-      <div class="row-fluid" id="rsvp">
+      <div class="row-fluid subcontent" id="rsvp">
          <div class="span1"><img class="bg_flower" id="bgflower_left1" src="/static/img/flower2.png"></div>
         
         <div class="span10">
@@ -102,21 +103,33 @@
           <p>Estamos fazendo tudo com muito carinho para que o nosso casamento seja um dia inesquecível que se completará com a presença de vocês lá.</p>
           <div>
               <form id="rsvp_form" method=post action="/">
-                <div class="row-fluid" id="p-0">
-                  <label>Nome</label>
-                  <input type="text" name="nome-0" placeholder="">
-                  <label>Telefone</label>
-                  <input type="text" name="telefone" placeholder="">
-                  <label>E-mail</label>
-                  <input type="text" name="email" placeholder="">
-                  <label class="presenca_radio">
-                    <input type="radio" name="presenca" id="confirma_radio" value="true" checked>
-                    Confirmo a presença
-                  </label>
-                  <label class="presenca_radio">
-                    <input type="radio" name="presenca" id="nao_confirma_radio" value="false">
-                    Não poderei comparecer ;_;
-                  </label>
+                <div id="p-0">
+                  <div class="row-fluid">
+                    <div class="span3">
+                      <label>Nome</label>
+                      <input type="text" name="nome-0" placeholder="">
+                    </div>
+                    <div class="span3">
+                      <label>Telefone</label>
+                      <input type="text" name="telefone" placeholder="">
+                    </div>
+                    <div class="span3">
+                      <label>E-mail</label>
+                      <input type="text" name="email" placeholder="">
+                    </div>
+                    <div class="span3">
+                      <label class="presenca_radio">
+                        <input type="radio" name="presenca" id="confirma_radio" value="true" checked>
+                          Confirmo a presença
+                      </label>
+                      <label class="presenca_radio">
+                        <input type="radio" name="presenca" id="nao_confirma_radio" value="false">
+                          Não poderei comparecer ;_;
+                     </label>
+                    </div>
+
+                  </div>
+                  
                 </div>
                 <ul class="nav nav-pills">
                   <li id="link_add_convidado"><a href="#1">Adicionar convidado</a></li>
@@ -131,7 +144,7 @@
       </div><!--/rsvp-->
 
       <!---- dicas ---->
-      <div class="row-fluid" id="dicas">
+      <div class="row-fluid subcontent" id="dicas">
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">Dicas</h1>
@@ -143,11 +156,11 @@
 
 
     <!---- presentes ---->
-      <div class="row-fluid" id="presentes">
+      <div class="row-fluid subcontent" id="presentes">
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">Lista de Presentes</h1>
-          <p>Como todos já sabem, nós juntamos os trapos há algum tempo e já temos a casa toda montada. Por isso, decidimos deixar a Lista de Presentes em formato de cotas para a nossa <strong>Lua de Mel</strong>, que será em Porto de Galinhas, Pernambuco.</p>
+          <p>Como todos já sabem, nós juntamos os trapos há algum tempo e já temos a casa toda montada. Por isso, decidimos deixar a Lista de Presentes em formato de <strong>cotas de viagem</strong> para a nossa <strong>Lua de Mel</strong>, que será em Porto de Galinhas, Pernambuco.</p>
           <p>Aqui vai as cotas</p>
           <p>Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar aqui mesmo ou por telefone.</p>
 
@@ -207,15 +220,15 @@
                 if($("#link_add_convidado").hasClass('disabled')){
                   return;
                 }
-                var last_num = parseInt($("#rsvp_form div:last").attr('id').split('-')[1]);
+                var last_num = parseInt($("#rsvp_form > div:last").attr('id').split('-')[1]);
                 var num = last_num + 1;
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newElem = $('#p-0').clone().attr('id', 'p-' + num);
-                newElem.children('.presenca_radio').remove()
-                newElem.children('input').not(":first").remove();
-                newElem.children('label').not(":first").remove();
-                newElem.children('input').attr('placeholder', '').val('');
-                newElem.children('input').attr('name', 'nome-' + num);
+                newElem.children('* .presenca_radio').remove()
+                newElem.children('* input').not(":first").remove();
+                newElem.children('* label').not(":first").remove();
+                newElem.children('* input').attr('placeholder', '').val('');
+                newElem.children('* input').attr('name', 'nome-' + num);
                 newElem.append('<a href="#1">Remover convidado</a>');
                 newElem.children('a').click(function(){ $(this).parent().remove(); })
                 $('#p-'+last_num).after(newElem);
