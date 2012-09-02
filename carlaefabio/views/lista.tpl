@@ -1,7 +1,7 @@
 <html>
 <head></head>
 <body>
-<table border="1">
+<table>
 	<tr>
 		<th>Nome</th>
 		<th>Telefone</th>
@@ -12,10 +12,7 @@
 	<tr>
 		%for content in row:
 		<td>{{ content }}</td>
-		%end
 	</tr>
-	%end
 </table>
-Total de convidados: {{num}}
 </body>
 </html>
