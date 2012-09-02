@@ -182,6 +182,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
     <script src="/static/js/jquery.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+      var form_enviado = {{ post }};
       $(function(){
         var header_offset = 0;
 
