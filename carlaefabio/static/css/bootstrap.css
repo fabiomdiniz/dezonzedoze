@@ -948,7 +948,7 @@ input[type="color"],
 
 input,
 textarea {
-  width: 210px;
+  width: 180px;
 }
 
 textarea {
@@ -5094,17 +5094,18 @@ input[type="submit"].btn.btn-mini {
   display: block;
   padding: 4px;
   line-height: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(175, 157, 144, 0.5);
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  /*
+  -webkit-box-shadow: 0 1px 3px rgba(175, 157, 144, 0.055);
+     -moz-box-shadow: 0 1px 3px rgba(175, 157, 144, 0.055);
+          box-shadow: 0 1px 3px rgba(175, 157, 144, 0.055);
   -webkit-transition: all 0.2s ease-in-out;
      -moz-transition: all 0.2s ease-in-out;
        -o-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out; */
 }
 
 a.thumbnail:hover {
@@ -5122,7 +5123,7 @@ a.thumbnail:hover {
 }
 
 .thumbnail .caption {
-  padding: 9px;
+  padding: 1px;
   color: #555555;
 }
 
@@ -5653,6 +5654,12 @@ a.badge:hover {
   font-style: normal;
 }
 
+#header {
+  background-image: url('/static/img/flower1.png'),url('/static/img/bg_pattern.jpg');
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+}
+
 @media (min-width: 980px) {
   li.active {
     background-image: url("/static/img/ribbon.png");
@@ -5692,6 +5699,9 @@ a.badge:hover {
       right: 0;
       width: 15%;
     }
+  input, textarea {
+    width: 130px;
+  } 
 }
 
 @media (max-width: 480px) {
@@ -5704,16 +5714,21 @@ a.badge:hover {
   #navbar_divisor{
     display: none;
   }
-  #header {
-    background-image: url('/static/img/flower1.png'),url('/static/img/bg_pattern.jpg');
-    background-position: right top, left top;
-    background-repeat: no-repeat, repeat;
-  }
   #bgflower_left1 {
     bottom:-10%;
     left: -174px;
     width: 200px;
   }
+  input, textarea {
+    width: 200px;
+  } 
+  #header {
+    background-image: url('/static/img/flower1.png'),url('/static/img/bg_pattern.jpg');
+    background-position: right top, left top;
+    background-repeat: no-repeat, repeat;
+    background-size: 30%, auto;
+  }
+
 }
 
 .navbar li a {
@@ -5761,11 +5776,6 @@ p strong {
   font-weight: normal;
 }
 
-#header {
-  background-image: url('/static/img/flower1.png'),url('/static/img/bg_pattern.jpg');
-  background-position: right bottom, left top;
-  background-repeat: no-repeat, repeat;
-}
 
 #bgflower_right1 {
   transform:rotate(180deg);
@@ -5781,4 +5791,10 @@ p strong {
 
 #rsvp .title, #presentes .title{
   margin-bottom: 20px;
+}
+
+.caption h4 {
+  margin: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }

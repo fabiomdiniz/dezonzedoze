@@ -129,11 +129,10 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                     </div>
 
                   </div>
-                  
                 </div>
-                <ul class="nav nav-pills">
-                  <li id="link_add_convidado"><a href="#1">Adicionar convidado</a></li>
-                </ul>
+                <br/>
+                <a id="link_add_convidado" href="#1">Adicionar acompanhante</a>
+                <br/><br/>
 
                 <button type="submit" class="btn">Enviar</button>
               </form>
@@ -148,8 +147,9 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">Dicas</h1>
-          <p><strong>Como chegar</strong><br/>Se você não conhece Jacareí, veja este mapa</p>
-          <p><strong>Hotéis</strong><br/A festa será no salão do Hotel Piazza e os convidados que quiserem se hospedar no próprio hotel têm desconto. É só informar na hora da reserva que são convidados do casamento.</p>
+          <p><strong>Como chegar</strong><br/>Saindo de São Paulo, é possível chegar pela Dutra (saída 165).</p>
+          <p><strong>Hotéis</strong><br/>A festa será no salão do <a href="http://www.piazzahotel.com.br/" target='_blank'>Hotel Piazza</a> e os convidados que quiserem se hospedar no próprio hotel têm desconto. É só informar na hora da reserva que são convidados do casamento.</p>
+          <p>Outras opções de hotel são: <a href="http://www.hotelbrisario.com.br/" target='_blank'>Brisa Rio</a></p>
         </div>
         <div class="span1"></div>
       </div><!--/rsvp-->
@@ -161,18 +161,85 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
         <div class="span10">
           <h1 class="title">Lista de Presentes</h1>
           <p>Como todos já sabem, nós juntamos os trapos há algum tempo e já temos a casa toda montada. Por isso, decidimos deixar a Lista de Presentes em formato de <strong>cotas de viagem</strong> para a nossa <strong>Lua de Mel</strong>, que será em Porto de Galinhas, Pernambuco.</p>
-          <p>Aqui vai as cotas</p>
-          <p>Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar aqui mesmo ou por telefone.</p>
+
+          <ul class="thumbnails">
+            <li class="span2">
+              <div class="thumbnail">
+                <img src="/static/img/margarida.png" alt="">
+                <div class="caption">
+                  <h4>Margarida</h4>
+                  <p><small>R$ 50,00</small></p>
+                </div>
+              </div>
+            </li>
+            <li class="span2">
+              <div class="thumbnail">
+                <img src="/static/img/rosa.png" alt="">
+                <div class="caption">
+                  <h4>Rosa</h4>
+                  <p><small>R$ 100,00</small></p>
+                </div>
+              </div>
+            </li>
+            <li class="span2">
+              <div class="thumbnail">
+                <img src="/static/img/tulipa.png" alt="">
+                <div class="caption">
+                  <h4>Tulipa</h4>
+                  <p><small>R$ 150,00</small></p>
+                </div>
+              </div>
+            </li>
+            <li class="span2">
+                <div class="thumbnail">
+                  <img src="/static/img/lirio.png" alt="">
+                  <div class="caption">
+                    <h4>Lótus</h4>
+                    <p><small>R$ 250,00</small></p>
+                  </div>
+                </div>
+            </li>
+             <li class="span2">
+                <div class="thumbnail">
+                  <img src="/static/img/orquidea.png" alt="">
+                  <div class="caption">
+                    <h4>Orquídea</h4>
+                    <p><small>R$ 350,00</small></p>
+                  </div>
+                </div>
+            </li>
+            <li class="span2">
+                <div class="thumbnail">
+                  <img src="/static/img/sakura.png" alt="">
+                  <div class="caption">
+                    <h4>Sakura</h4>
+                    <p><small>R$ 500,00</small></p>
+                  </div>
+                </div>
+            </li>
+            </ul>
+
+
+          <p>Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar por telefone ou pelo formulário abaixo.</p>
 
         </div>
         <div class="span1"></div>
-      </div><!--/rsvp-->
+      </div><!--/presentes-->
 
-      <hr>
 
-      <footer>
-        <p>Company 2012</p>
-      </footer>
+    <!---- footer ---->
+      <div class="row-fluid">
+        <div class="span1"></div>
+        <div class="span10 underline"></div>
+        <div class="span1"></div>
+      </div>
+      <div class="row-fluid subcontent" id="presentes">
+        <div class="span1"></div>
+        <div class="span10" style="text-align:center;">    
+          <p><small>Desenvolvido por Carla e Fábio</small></p>
+        </div>
+        <div class="span1"></div>
+      </div><!--/fotter-->
 
     </div><!--/.fluid-container-->
 
@@ -213,7 +280,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                 $("#link_add_convidado").removeClass('disabled');
             } else {                              
                 $("#link_add_convidado").addClass('disabled');
-                $("#rsvp_form div:not(:first)").remove();
+                $("#rsvp_form > div:not(:first)").remove();
             }
         });
 
@@ -228,10 +295,12 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                 newElem.find('* .presenca_radio').remove()
                 newElem.find('* input').not(":first").remove();
                 newElem.find('* label').not(":first").remove();
-                newElem.find('* input').attr('placeholder', '').val('');
+                newElem.find('* input').attr('placeholder', 'Nome').val('');
                 newElem.find('* input').attr('name', 'nome-' + num);
-                newElem.append('<a href="#1">Remover convidado</a>');
-                newElem.children('a').click(function(){ $(this).parent().remove(); })
+                newElem.find('div div').not(":first").remove();
+                newElem.find('div div').append('<a href="#1">Remover</a>');
+                newElem.find('div div').removeClass('span3').addClass('span6');
+                newElem.find('a').click(function(){ $("#p-"+num).remove(); })
                 newElem.find('label').html("Acompanhante")
                 $('#p-'+last_num).after(newElem);
  
