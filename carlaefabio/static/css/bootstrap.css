@@ -946,9 +946,12 @@ input[type="color"],
           border-radius: 3px;
 }
 
-input,
-textarea {
+input {
   width: 180px;
+}
+
+textarea {
+  width: 350px;
 }
 
 textarea {
@@ -1506,7 +1509,7 @@ select:focus:required:invalid:focus {
 .input-append .btn,
 .input-prepend .btn {
   margin-left: -1px;
-  vertical-align: top;
+  vertical-align: bottom;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
@@ -2910,7 +2913,7 @@ button.close {
   display: inline-block;
   *display: inline;
   padding: 4px 14px;
-  margin-bottom: 0;
+  margin-bottom: 9px;
   *margin-left: .3em;
   font-size: 14px;
   line-height: 20px;
@@ -2918,7 +2921,7 @@ button.close {
   color: #333333;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  vertical-align: middle;
+  vertical-align: bottom;
   cursor: pointer;
   background-color: #f5f5f5;
   *background-color: #e6e6e6;
@@ -5771,11 +5774,12 @@ p {
   font-weight: normal;
 }
 
+/*
 p strong {
-  color:#d25500;
+  color:#8b3801;
   font-weight: normal;
 }
-
+*/
 
 #bgflower_right1 {
   transform:rotate(180deg);

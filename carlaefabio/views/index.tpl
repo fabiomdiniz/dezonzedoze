@@ -100,7 +100,7 @@
 <p>A união será celebrada na <strong>
 Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.gl/maps/ZvN80" target='_blank'> Praça Padre Anchieta, 92.</a></p>
 
-<p>Após a cerimônia religiosa, os noivos receberão os convidados no <strong>Hotel Piazza</strong>, localizado na <a href="http://goo.gl/maps/bh7uw" target='blank'> Rua Batista Scavone, 22</a>.</p>
+<p>Após a cerimônia religiosa, os noivos receberão os convidados no <strong>Hotel Piazza</strong>, localizado na <a href="http://goo.gl/maps/X1Hza" target='blank'> Rua Batista Scavone, 22</a>.</p>
         </div>
         <div class="span1"></div>
       </div> <!-- Evento -->
@@ -152,6 +152,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                 <button type="submit" id="submit_presenca" class="btn">Enviar</button>
               </form>
             </div><!--/span-->
+            <p>Se você preferir, pode confirmar a presença por telefone com:<small><br/>Arlete: <b>(11) 96789-9918</b> <br/>ou Marli: <b>(12) 9768-4525</b></small></p>
         </div>
         <div class="span1"><img class="bg_flower" id="bgflower_right1" src="/static/img/flower2.png"></div>
 
@@ -162,7 +163,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">Dicas</h1>
-          <p><strong>Como chegar</strong><br/>Saindo de São Paulo, é possível chegar pela Dutra (saída 165).</p>
+          <p><strong>Como chegar</strong><br/>Saindo de São Paulo, o caminho mais simples é pela Dutra (saída 165). Conforme <a href="http://goo.gl/maps/g0Kx3" target='_blank'>este mapa</a>.</p>
           <p><strong>Hotéis</strong><br/>A festa será no salão do <a href="http://www.piazzahotel.com.br/" target='_blank'>Hotel Piazza</a> e os convidados que quiserem se hospedar no próprio hotel têm desconto. É só informar na hora da reserva que são convidados do casamento.</p>
           <p>Outras opções de hotel são: <a href="http://www.hotelbrisario.com.br/" target='_blank'>Brisa Rio</a></p>
         </div>
@@ -234,12 +235,13 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
             </li>
             </ul>
 
-
-          <p>Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar por telefone ou pelo formulário abaixo.</p>
+            <p><strong>Dados bancários para depósito</strong> <br/> <small>Fábio Machado Diniz<br/> Banco Itaú (341) <br/> Agência: 6470 <br/> Conta: 01243-3</small></p>
+            <p><strong>Observação</strong> <br/>
+          Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar por telefone ou pelo formulário abaixo.</p>
           <form id="lista_form" method=post action="/">
                   <div class="row-fluid">
-                    <div class="span3">
-                      <div class="control-group">
+                    <div class="span4">
+                       <div class="control-group">
                       <label>Nome</label>
                       <input type="text" id="nome" name="nome" placeholder="">
                       <label class="error_message" style="display: none;">Campo obrigatório</label>
@@ -260,12 +262,13 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                         <label class="error_message" style="display: none;">Campo obrigatório</label>
                       </div>
                     </div>
-                    <div class="span3">
+                    
+                    <div class="span6">
                       <label>Mensagem para os noivos</label>
                       <textarea rows="5" name="mensagem" id="mensagem" placeholder="Opcional"></textarea>
+                      <button type="submit" id="submit_lista" class="btn">Enviar</button>
                     </div>
                   </div>
-                <button type="submit" id="submit_lista" class="btn">Enviar</button>
               </form>
         </div>
         <div class="span1"></div>
