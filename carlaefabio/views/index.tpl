@@ -98,7 +98,7 @@
           <p>Após de 5 anos de namoro, o inevitável acontece: Carla e Fábio se casam no <strong>sábado, dia 10 de Novembro de 2012</strong> às <strong>15:30</strong> em Jacareí, à 100 km de São Paulo.</p>
 
 <p>A união será celebrada na <strong>
-Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.gl/maps/ZvN80" target='_blank'> Praça Padre Anchieta, 92.</a></p>
+Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://maps.google.com.br/maps?q=-23.305498,-45.972822&hl=pt-BR&ll=-23.305522,-45.97251&spn=0.003345,0.004957&num=1&t=m&z=18" target='_blank'> Praça Padre Anchieta, 92.</a></p>
 
 <p>Após a cerimônia religiosa, os noivos receberão os convidados no <strong>Hotel Piazza</strong>, localizado na <a href="http://goo.gl/maps/X1Hza" target='blank'> Rua Batista Scavone, 22</a>.</p>
         </div>

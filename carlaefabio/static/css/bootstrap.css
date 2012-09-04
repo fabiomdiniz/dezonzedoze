@@ -2887,9 +2887,8 @@ table .span24 {
   font-size: 20px;
   font-weight: bold;
   line-height: 20px;
-  color: #000000;
-  text-shadow: 0 1px 0 #ffffff;
-  opacity: 0.2;
+  color: #d2a485;
+  opacity: 1;
   filter: alpha(opacity=20);
 }
 
@@ -3573,7 +3572,7 @@ input[type="submit"].btn.btn-mini {
   padding: 8px 35px 8px 14px;
   margin-bottom: 20px;
   color: #c09853;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
   -webkit-border-radius: 4px;
@@ -3587,15 +3586,15 @@ input[type="submit"].btn.btn-mini {
 
 .alert .close {
   position: relative;
-  top: -2px;
   right: -21px;
   line-height: 20px;
 }
 
 .alert-success {
-  color: #468847;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
+  color: #d2a485;
+  background-color: #481d00;
+  border-color: #af9d90;
+  z-index: 100;
 }
 
 .alert-danger,
