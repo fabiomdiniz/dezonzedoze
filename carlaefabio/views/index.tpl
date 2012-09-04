@@ -117,7 +117,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
           <p>Estamos fazendo tudo com muito carinho para que o nosso casamento seja um dia inesquecível que se completará com a presença de vocês lá.</p>
           <div>
               <form id="rsvp_form" method=post action="/">
-                <div id="p-0">
+                <div id="p-0" class="guest_div">
                   <div class="row-fluid">
                     <div class="span3 control-group">
                       <label>Nome</label>
@@ -147,7 +147,11 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                   </div>
                 </div>
                 <br/>
+                <div class="nav">
+                <div>
                 <a id="link_add_convidado" href="#1">Adicionar acompanhante</a>
+                </div>
+                </div>
                 <br/><br/>
 
                 <button type="submit" id="submit_presenca" class="btn">Enviar</button>
@@ -354,18 +358,18 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
 
         $('.presenca_radio').click(function() {           
             if($("#confirma_radio").is(':checked'))  {
-                $("#link_add_convidado").removeClass('disabled');
+                $("#link_add_convidado").parent().removeClass('disabled');
             } else {                              
-                $("#link_add_convidado").addClass('disabled');
-                $("#rsvp_form > div:not(:first)").remove();
+                $("#link_add_convidado").parent().addClass('disabled');
+                $("#rsvp_form > div.guest_div:not(:first)").remove();
             }
         });
 
         $('#link_add_convidado').click(function() {
-                if($("#link_add_convidado").hasClass('disabled')){
+                if($("#link_add_convidado").parent().hasClass('disabled')){
                   return;
                 }
-                var last_num = parseInt($("#rsvp_form > div:last").attr('id').split('-')[1]);
+                var last_num = parseInt($("#rsvp_form > div.guest_div:last").attr('id').split('-')[1]);
                 var num = last_num + 1;
                 // create the new element via clone(), and manipulate it's ID using newNum value
                 var newElem = $('#p-0').clone().attr('id', 'p-' + num);
