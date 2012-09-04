@@ -87,7 +87,7 @@
 <p>A união será celebrada na <strong>
 Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.gl/maps/ZvN80" target='_blank'> Praça Padre Anchieta, 92.</a></p>
 
-<p>Após a cerimônia religiosa, os noivos receberão os convidados no <strong>Hotel Piazza</strong>, localizado na <a href="http://goo.gl/maps/XJhnt" target='blank'> Rua Batista Scavone, 22</a>.</p>
+<p>Após a cerimônia religiosa, os noivos receberão os convidados no <strong>Hotel Piazza</strong>, localizado na <a href="http://goo.gl/maps/bh7uw" target='blank'> Rua Batista Scavone, 22</a>.</p>
         </div>
         <div class="span1"></div>
       </div> <!-- Evento -->
