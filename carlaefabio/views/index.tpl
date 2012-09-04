@@ -13,6 +13,7 @@
       body {
         padding-top: 200px;
         padding-bottom: 0px;
+        background-color: #eeeee4;
         background-image: url("/static/img/bg_pattern.jpg");
         background-repeat: repeat;
         background-position: top left;
