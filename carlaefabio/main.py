@@ -71,8 +71,14 @@ def rsvp():
     subject = "[PRESENCA]"
     if convidado.presenca:
       subject += "[SIM]"
-      body = """ Convidado {0} confirma presençam, com os convidados: {1}
-                 Telefone: {2}        Email: {3} """.format(convidado.nome, ', '.join(convidado.acompanhantes), convidado.telefone, convidado.email)
+      body = """ 
+Confirmação de presença
+Convidado: {0} 
+Telefone: {2}
+Email: {3}
+
+Acompanhantes: 
+{1}""".format(convidado.nome, ', '.join(convidado.acompanhantes), convidado.telefone, convidado.email)
     else:
       subject += "[NAO]"
       body = """ Convidado {0} confirma ausência""".format(convidado.nome)
@@ -85,14 +91,13 @@ def rsvp():
     if convidado.presenca and convidado.email:
       subject = "Confirmação de Presença"
       body = """
-      Olá,
+Olá,
 
-      Obrigado por confirmar a presença em nosso casamento.
-      Caso ocorra algum imprevisto e você não possa comparecer, por favor nos avise no email: carlaefabio@carlaefabio.com.br
+Obrigado por confirmar a presença em nosso casamento.
+Caso ocorra algum imprevisto e você não possa comparecer, por favor nos avise no email: carlaefabio@carlaefabio.com.br
 
-      Abraços,
-      Carla e Fábio
-      """
+Abraços,
+Carla e Fábio"""
       mail.send_mail(sender_address, convidado.email, subject, body)
 
     return index(1)
@@ -117,8 +122,11 @@ def presente():
   
   sender_address = "Carla e Fábio <carlaefabio@carlaefabio.com.br>"
   mail.send_mail(sender_address, "carlaguill@gmail.com", "PRESENTE ENVIADO =)", 
-                """{0} enviou R$ {1}, mensagem: 
-                {2}""".format(presente.nome, presente.valor, presente.mensagem))
+                """Quem: {0} 
+Valor: R$ {1}
+
+Mensagem: 
+{2}""".format(presente.nome, presente.valor, presente.mensagem))
 
   return index(2)
 
