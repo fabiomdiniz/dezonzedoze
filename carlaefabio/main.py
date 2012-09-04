@@ -138,7 +138,25 @@ def lista():
     for convidado in Convidado.all():
       output.append([convidado.nome, convidado.telefone, convidado.email, ', '.join(convidado.acompanhantes)])
       num += 1 + len(convidado.acompanhantes)
-  return {'output':output, 'num':num, 'perm':users.is_current_user_admin()}
+  return {'output':output, 'num':num}
+
+@route('/presentes')
+@view('presentes')
+def presentes():
+
+  user = users.get_current_user()
+
+  if not user:
+    from bottle import redirect
+    redirect(users.create_login_url(request.url), 303)
+
+  output = []
+  num = 0
+  if users.is_current_user_admin():
+    for presente in Presente.all():
+      output.append([presente.nome, presente.valor, presente.mensagem])
+      num += presente.valor
+  return {'output':output, 'num':num}
 
 # ... build or import your bottle application here ...
 run(server='gae')
