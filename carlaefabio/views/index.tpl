@@ -146,12 +146,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
 
                   </div>
                 </div>
-                <br/>
-                <div class="nav">
-                <div>
                 <a id="link_add_convidado" href="#1">Adicionar acompanhante</a>
-                </div>
-                </div>
                 <br/><br/>
 
                 <button type="submit" id="submit_presenca" class="btn">Enviar</button>
@@ -358,15 +353,15 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
 
         $('.presenca_radio').click(function() {           
             if($("#confirma_radio").is(':checked'))  {
-                $("#link_add_convidado").parent().removeClass('disabled');
+                $("#link_add_convidado").show();
             } else {                              
-                $("#link_add_convidado").parent().addClass('disabled');
+                $("#link_add_convidado").hide();
                 $("#rsvp_form > div.guest_div:not(:first)").remove();
             }
         });
 
         $('#link_add_convidado').click(function() {
-                if($("#link_add_convidado").parent().hasClass('disabled')){
+                if(!$("#link_add_convidado").is(':visible')){
                   return;
                 }
                 var last_num = parseInt($("#rsvp_form > div.guest_div:last").attr('id').split('-')[1]);
