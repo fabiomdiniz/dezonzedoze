@@ -33,9 +33,10 @@ from bottle import route, run, template, request, view
 from google.appengine.ext import db
 from google.appengine.api import mail
 from google.appengine.api import users
-
+import os
 
 bottle.debug(True)
+bottle.TEMPLATE_PATH.insert(0,os.path.join(os.path.dirname(__file__), 'views'))
 
 class Convidado(db.Model):
     nome = db.StringProperty()
