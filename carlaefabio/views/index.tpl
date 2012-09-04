@@ -260,7 +260,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                       <div id="outro_div" class="control-group" style="display:none;">
                         <label>Valor</label>
                         <input type="text" id="outro_valor" name="outro_valor" placeholder="">
-                        <label class="error_message" style="display: none;">Campo obrigatório</label>
+                        <label class="error_message" style="display: none;">Valor inválido</label>
                       </div>
                     </div>
                     
@@ -300,6 +300,17 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
     <script src="/static/js/jquery.validate.min.js"></script>
     <script src="/static/js/jquery.validate.bootstrap.js"></script>
     <script type="text/javascript">
+      function isNumeric(val) {
+        var validChars = '0123456789.,';
+
+        for(var i = 0; i < val.length; i++) {
+            if(validChars.indexOf(val.charAt(i)) == -1)
+                return false;
+        }
+
+        return true;
+    }
+
       function validateEmail(email) { 
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
@@ -408,10 +419,12 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
               $("#nome").parent().find('.error_message').show();
               valido = false;
             }
-            if($('#outro_valor').is(':visible') && $("#outro_valor").val() == "") {
+            if($('#outro_valor').is(':visible')) {
+              if($("#outro_valor").val() == "" || !isNumeric($("#outro_valor").val())) {
                 $("#outro_valor").parent().addClass('error');
                 $("#outro_valor").parent().find('.error_message').show();
                 valido = false;
+              }
             }
             if(valido) {
               $("#lista_form").submit();

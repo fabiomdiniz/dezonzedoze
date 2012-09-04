@@ -106,7 +106,7 @@ def presente():
               "Sakura": 500.00}
 
   if request.forms['outro_valor']:
-    valor = float(request.forms['outro_valor'])
+    valor = float(request.forms['outro_valor'].replace(',','.'))
   else:
     valor = valores[request.forms['cota']]
 
