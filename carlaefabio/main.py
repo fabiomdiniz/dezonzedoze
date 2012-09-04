@@ -53,7 +53,7 @@ class Presente(db.Model):
 
 @route('/')
 @view('index')
-def index(post="false"):
+def index(post=0):
     return {'post':post}
 
 @route('/', method='POST')
@@ -95,7 +95,7 @@ def rsvp():
       """
       mail.send_mail(sender_address, convidado.email, subject, body)
 
-    return index("true")
+    return index(1)
 
 def presente():
   valores = {"Margarida": 50.00, 
@@ -120,7 +120,7 @@ def presente():
                 """{0} enviou R$ {1}, mensagem: 
                 {2}""".format(presente.nome, presente.valor, presente.mensagem))
 
-  return index()
+  return index(2)
 
 @route('/lista')
 @view('lista')

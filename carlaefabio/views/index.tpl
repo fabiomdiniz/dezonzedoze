@@ -20,6 +20,13 @@
       .sidebar-nav {
         padding: 9px 0;
       }
+
+      #fixed-div {
+          position: fixed;
+          bottom: 0em;
+          right: 0em;
+          margin-bottom: 0px;
+      }
     </style>
     <link href="/static/css/bootstrap-responsive.css" rel="stylesheet" />
 
@@ -37,7 +44,12 @@
   </head>
 
   <body>
-
+            %if post:
+            <div id="fixed-div" class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Informações enviadas com sucesso! </strong>
+            </div>
+            %end      
 
     <!---- NAV BAR ---->
     <div class="navbar navbar-fixed-top" id="header">
@@ -47,6 +59,7 @@
           <div class="row-fluid">
             <div class="span4"></div>
             <div class="span4">
+      
               <img id="logo" src="/static/img/logo.png" alt="">
             </div>
             <div class="span4"></div>
@@ -105,17 +118,19 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
               <form id="rsvp_form" method=post action="/">
                 <div id="p-0">
                   <div class="row-fluid">
-                    <div class="span3">
+                    <div class="span3 control-group">
                       <label>Nome</label>
-                      <input type="text" name="nome-0" placeholder="">
+                      <input type="text" class="name_field" name="nome-0" placeholder="">
+                      <label class="error_message" style="display: none;">Campo obrigatório</label>
                     </div>
                     <div class="span3">
                       <label>Telefone</label>
                       <input type="text" name="telefone" placeholder="">
                     </div>
-                    <div class="span3">
+                    <div class="span3 control-group">
                       <label>E-mail</label>
-                      <input type="text" name="email" placeholder="">
+                      <input type="text" id="email_field" name="email" placeholder="">
+                      <label class="error_message" style="display: none;">Email inválido</label>
                     </div>
                     <div class="span3">
                       <label class="presenca_radio">
@@ -134,7 +149,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                 <a id="link_add_convidado" href="#1">Adicionar acompanhante</a>
                 <br/><br/>
 
-                <button type="submit" class="btn">Enviar</button>
+                <button type="submit" id="submit_presenca" class="btn">Enviar</button>
               </form>
             </div><!--/span-->
         </div>
@@ -224,8 +239,11 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
           <form id="lista_form" method=post action="/">
                   <div class="row-fluid">
                     <div class="span3">
+                      <div class="control-group">
                       <label>Nome</label>
                       <input type="text" id="nome" name="nome" placeholder="">
+                      <label class="error_message" style="display: none;">Campo obrigatório</label>
+                      </div>
                       <label>Cota</label>
                       <select id="cota_select" name="cota">
                         <option value="Margarida">Margarida (R$ 50)</option>
@@ -236,9 +254,10 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                         <option value="Sakura">Sakura (R$ 500)</option>
                         <option value="Outro">Outro</option>
                       </select>
-                      <div id="outro_div"  style="display:none;">
+                      <div id="outro_div" class="control-group" style="display:none;">
                         <label>Valor</label>
                         <input type="text" id="outro_valor" name="outro_valor" placeholder="">
+                        <label class="error_message" style="display: none;">Campo obrigatório</label>
                       </div>
                     </div>
                     <div class="span3">
@@ -246,7 +265,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                       <textarea rows="5" name="mensagem" id="mensagem" placeholder="Opcional"></textarea>
                     </div>
                   </div>
-                <button type="submit" class="btn">Enviar</button>
+                <button type="submit" id="submit_lista" class="btn">Enviar</button>
               </form>
         </div>
         <div class="span1"></div>
@@ -277,7 +296,10 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
     <script src="/static/js/jquery.validate.min.js"></script>
     <script src="/static/js/jquery.validate.bootstrap.js"></script>
     <script type="text/javascript">
-      var form_enviado = {{ post }};
+      function validateEmail(email) { 
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
       $(function(){
         var header_offset = 0;
 
@@ -334,21 +356,63 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                 var newElem = $('#p-0').clone().attr('id', 'p-' + num);
                 newElem.find('* .presenca_radio').remove()
                 newElem.find('* input').not(":first").remove();
-                newElem.find('* label').not(":first").remove();
+                newElem.find('* label').not(":first, .error_message").remove();
                 newElem.find('* input').attr('placeholder', 'Nome').val('');
                 newElem.find('* input').attr('name', 'nome-' + num);
                 newElem.find('div div').not(":first").remove();
-                newElem.find('div div').append('<a href="#1">Remover</a>');
+                newElem.find('div div input').after('&nbsp;<a href="#1">Remover</a>');
                 newElem.find('div div').removeClass('span3').addClass('span6');
                 newElem.find('a').click(function(){ $("#p-"+num).remove(); })
-                newElem.find('label').html("Acompanhante")
+                newElem.find('label:first').html("Acompanhante");
+                newElem.find('label.error_message').hide();
+                newElem.find('.error').removeClass('error');
                 $('#p-'+last_num).after(newElem);
  
                 // insert the new element after the last "duplicatable" input field
 //                $('#input' + num).after(newElem);
             });
       
+        $('#submit_presenca').click(function(e) {
+            $('.error_message').hide();
+            $('.error').removeClass('error');
+            e.preventDefault();
+            valido = true;
+            $('.name_field').each(function(){
+              if($(this).val() == "") {
+                $(this).parent().addClass('error');
+                $(this).parent().find('.error_message').show();
+                valido = false;
+              }
+            });
+            if(!validateEmail($('#email_field').val())) {
+              $('#email_field').parent().addClass('error');
+              $('#email_field').parent().find('.error_message').show();
+              valido = false;
+            }
+            if(valido) {
+              $("#rsvp_form").submit();
+            }
+        });
 
+        $('#submit_lista').click(function(e) {
+            $('.error_message').hide();
+            $('.error').removeClass('error');
+            e.preventDefault();
+            valido = true;
+            if($("#nome").val() == "") {
+              $("#nome").parent().addClass('error');
+              $("#nome").parent().find('.error_message').show();
+              valido = false;
+            }
+            if($('#outro_valor').is(':visible') && $("#outro_valor").val() == "") {
+                $("#outro_valor").parent().addClass('error');
+                $("#outro_valor").parent().find('.error_message').show();
+                valido = false;
+            }
+            if(valido) {
+              $("#lista_form").submit();
+            }
+        });        
 
       });
 
