@@ -221,7 +221,33 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
 
 
           <p>Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar por telefone ou pelo formulário abaixo.</p>
-
+          <form id="lista_form" method=post action="/">
+                  <div class="row-fluid">
+                    <div class="span3">
+                      <label>Nome</label>
+                      <input type="text" id="nome" name="nome" placeholder="">
+                      <label>Cota</label>
+                      <select id="cota_select" name="cota">
+                        <option value="Margarida">Margarida (R$ 50)</option>
+                        <option value="Rosa">Rosa (R$ 100)</option>
+                        <option value="Tulipa">Tulipa (R$ 150)</option>
+                        <option value="Lótus">Lótus (R$ 250)</option>
+                        <option value="Orquídea">Orquídea (R$ 350)</option>
+                        <option value="Sakura">Sakura (R$ 500)</option>
+                        <option value="Outro">Outro</option>
+                      </select>
+                      <div id="outro_div"  style="display:none;">
+                        <label>Valor</label>
+                        <input type="text" id="outro_valor" name="outro_valor" placeholder="">
+                      </div>
+                    </div>
+                    <div class="span3">
+                      <label>Mensagem para os noivos</label>
+                      <textarea rows="5" name="mensagem" id="mensagem" placeholder="Opcional"></textarea>
+                    </div>
+                  </div>
+                <button type="submit" class="btn">Enviar</button>
+              </form>
         </div>
         <div class="span1"></div>
       </div><!--/presentes-->
@@ -248,6 +274,8 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/js/jquery.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.validate.min.js"></script>
+    <script src="/static/js/jquery.validate.bootstrap.js"></script>
     <script type="text/javascript">
       var form_enviado = {{ post }};
       $(function(){
@@ -273,6 +301,18 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
 
           return false;
         });
+
+      $('#cota_select').change(function() {
+         // assign the value to a variable, so you can test to see if it is working
+          if($('#cota_select :selected').val() == "Outro")
+          {
+            $("#outro_div").show();
+          }
+          else
+          {
+            $("#outro_div").hide();
+          }
+      });
 
 
         $('.presenca_radio').click(function() {           
@@ -307,6 +347,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="http://goo.
                 // insert the new element after the last "duplicatable" input field
 //                $('#input' + num).after(newElem);
             });
+      
 
 
       });

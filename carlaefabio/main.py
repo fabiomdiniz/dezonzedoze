@@ -45,6 +45,11 @@ class Convidado(db.Model):
     date = db.DateTimeProperty(auto_now_add=True)
     acompanhantes = db.ListProperty(str)
 
+class Presente(db.Model):
+    nome = db.StringProperty()
+    valor = db.FloatProperty()
+    mensagem = db.TextProperty()
+
 @route('/')
 @view('index')
 def index(post="false"):
@@ -52,6 +57,8 @@ def index(post="false"):
 
 @route('/', method='POST')
 def rsvp():
+    if 'cota' in request.forms:
+      return presente()
     convidado = Convidado(nome=request.forms['nome-0'],
                           email=request.forms['email'],
                           telefone=request.forms['telefone'],
@@ -70,6 +77,7 @@ def rsvp():
       body = """ Convidado {0} confirma ausência""".format(convidado.nome)
     subject += convidado.nome
     
+    mail.send_mail(sender_address, "carlaguill@gmail.com", subject, body)
     mail.send_mail(sender_address, "fabiomachadodiniz@gmail.com", subject, body)
     mail.send_mail(sender_address, sender_address, subject, body)
 
@@ -87,6 +95,31 @@ def rsvp():
       mail.send_mail(sender_address, convidado.email, subject, body)
 
     return index("true")
+
+def presente():
+  valores = {"Margarida": 50.00, 
+              "Rosa": 100.00, 
+              "Tulipa": 150.00, 
+              "Lótus": 250.00, 
+              "Orquídea": 350.00, 
+              "Sakura": 500.00}
+
+  if request.forms['outro_valor']:
+    valor = float(request.forms['outro_valor'])
+  else:
+    valor = valores[request.forms['cota']]
+
+  presente = Presente(nome=request.forms['nome'],
+                      valor=valor, mensagem=request.forms['mensagem'])
+
+  presente.put()
+  
+  sender_address = "Carla e Fábio <carlaefabio@carlaefabio.com.br>"
+  mail.send_mail(sender_address, "carlaguill@gmail.com", "PRESENTE ENVIADO =)", 
+                """{0} enviou R$ {1}, mensagem: 
+                {2}""".format(presente.nome, presente.valor, presente.mensagem))
+
+  return index()
 
 @route('/lista')
 @view('lista')
