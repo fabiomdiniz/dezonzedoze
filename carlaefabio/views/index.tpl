@@ -178,7 +178,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">Dicas</h1>
-          <p><strong>Como chegar</strong><br/>Saindo de São Paulo, o caminho mais simples é pela Dutra (saída 165). Conforme <a href="http://goo.gl/maps/g0Kx3" target='_blank'>este mapa</a>.</p>
+          <p><strong>Como chegar</strong><br/>Saindo de São Paulo, o caminho mais simples é pela Dutra (saída 165). Conforme <a href="http://goo.gl/maps/DrdWC" target='_blank'>este mapa</a>.</p>
           <p><strong>Hotéis</strong><br/>A festa será no salão do <a href="http://www.piazzahotel.com.br/" target='_blank'>Hotel Piazza</a> e os convidados que quiserem se hospedar no próprio hotel têm desconto. É só informar na hora da reserva que são convidados do casamento.</p>
           <p>Outras opções de hotel são: <a href="http://www.hotelbrisario.com.br/" target='_blank'>Brisa Rio</a> e <a href="http://www.hotelrealpark.com.br/" target='_blank'>Real Park</a></p>
         </div>
@@ -194,7 +194,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
           <p>Como todos já sabem, nós juntamos os trapos há algum tempo e já temos a casa toda montada. Por isso, decidimos deixar a Lista de Presentes em formato de <strong>cotas de viagem</strong> para a nossa <strong>Lua de Mel</strong>, que será em Porto de Galinhas, Pernambuco.</p>
 
           <ul class="thumbnails">
-            <li class="span2">
+            <li class="span2" style="float:left">
               <div class="thumbnail">
                 <img src="/static/img/margarida.png" alt="">
                 <div class="caption">
@@ -203,7 +203,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                 </div>
               </div>
             </li>
-            <li class="span2">
+            <li class="span2" style="float:left">
               <div class="thumbnail">
                 <img src="/static/img/rosa.png" alt="">
                 <div class="caption">
@@ -212,7 +212,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                 </div>
               </div>
             </li>
-            <li class="span2">
+            <li class="span2" style="float:left">
               <div class="thumbnail">
                 <img src="/static/img/tulipa.png" alt="">
                 <div class="caption">
@@ -221,7 +221,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                 </div>
               </div>
             </li>
-            <li class="span2">
+            <li class="span2" style="float:left">
                 <div class="thumbnail">
                   <img src="/static/img/lirio.png" alt="">
                   <div class="caption">
@@ -230,7 +230,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                   </div>
                 </div>
             </li>
-             <li class="span2">
+             <li class="span2" style="float:left">
                 <div class="thumbnail">
                   <img src="/static/img/orquidea.png" alt="">
                   <div class="caption">
@@ -239,7 +239,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                   </div>
                 </div>
             </li>
-            <li class="span2">
+            <li class="span2" style="float:left">
                 <div class="thumbnail">
                   <img src="/static/img/sakura.png" alt="">
                   <div class="caption">
