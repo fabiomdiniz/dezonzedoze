@@ -7,6 +7,9 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
+    <!-- alt decorative font-->
+    <link href='http://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css'>
+
     <!-- Le styles -->
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <style type="text/css">
