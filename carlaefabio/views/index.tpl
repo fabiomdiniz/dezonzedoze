@@ -29,7 +29,7 @@
           margin-bottom: 0px;
       }
     </style>
-    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" charset="utf-8" />
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -111,10 +111,10 @@
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">O evento</h1>
-          <p>Após de 5 anos de namoro, o inevitável acontece: Carla e Fábio se casam no <strong>sábado, dia 10 de Novembro de 2012</strong> às <strong>15:30</strong> em Jacareí, à 100 km de São Paulo.</p>
+          <p>Após 5 anos de namoro, o inevitável acontece: Carla e Fábio se casam no <strong>sábado, dia 10 de Novembro de 2012</strong> às <strong>15:30</strong> em Jacareí, cidade localizada a 80 km de São Paulo.</p>
 
 <p>A união será celebrada na <strong>
-Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://maps.google.com.br/maps?q=-23.305498,-45.972822&hl=pt-BR&ll=-23.305522,-45.97251&spn=0.003345,0.004957&num=1&t=m&z=18" target='_blank'> Praça Padre Anchieta, 92.</a></p>
+Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://maps.google.com.br/maps?q=-23.305498,-45.972822&hl=pt-BR&ll=-23.305522,-45.97251&spn=0.003345,0.004957&num=1&t=m&z=18" target='_blank'> Praça Padre Anchieta, 92 - Jacareí - SP.</a></p>
 
 <p>Após a cerimônia religiosa, os noivos receberão os convidados no <strong>Hotel Piazza</strong>, localizado na <a href="http://goo.gl/maps/X1Hza" target='blank'> Rua Batista Scavone, 22</a>.</p>
         </div>
@@ -129,7 +129,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
         <div class="span10">
           <h1 class="title">Rsvp</h1>
           <p>Se você recebeu um convite, é muito importante que confirme se poderá ou não comparecer, pois somente desta forma conseguiremos preparar a festa para o número correto de convidados.</p>
-          <p>Estamos fazendo tudo com muito carinho para que o nosso casamento seja um dia inesquecível que se completará com a presença de vocês lá.</p>
+          <p>Estamos fazendo tudo com muito carinho para que o nosso casamento seja um dia inesquecível que se completará com a sua presença.</p>
           <div>
               <form id="rsvp_form" method=post action="/">
                 <div id="p-0" class="guest_div">
@@ -167,7 +167,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                 <button type="submit" id="submit_presenca" class="btn">Enviar</button>
               </form>
             </div><!--/span-->
-            <p>Se você preferir, pode confirmar a presença por telefone com:<small><br/>Arlete: <b>(11) 96789-9918</b> <br/>ou Marli: <b>(12) 9768-4525</b></small></p>
+            <p>Se preferir, poderá confirmar a presença por telefone com:<small><br/>Arlete: <b>(11) 96789-9918</b> <br/>ou Marli: <b>(12) 9768-4525</b></small></p>
         </div>
         <div class="span1"><img class="bg_flower" id="bgflower_right1" src="/static/img/flower2.png"></div>
 
@@ -180,7 +180,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
           <h1 class="title">Dicas</h1>
           <p><strong>Como chegar</strong><br/>Saindo de São Paulo, o caminho mais simples é pela Dutra (saída 165). Conforme <a href="http://goo.gl/maps/g0Kx3" target='_blank'>este mapa</a>.</p>
           <p><strong>Hotéis</strong><br/>A festa será no salão do <a href="http://www.piazzahotel.com.br/" target='_blank'>Hotel Piazza</a> e os convidados que quiserem se hospedar no próprio hotel têm desconto. É só informar na hora da reserva que são convidados do casamento.</p>
-          <p>Outras opções de hotel são: <a href="http://www.hotelbrisario.com.br/" target='_blank'>Brisa Rio</a></p>
+          <p>Outras opções de hotel são: <a href="http://www.hotelbrisario.com.br/" target='_blank'>Brisa Rio</a> e <a href="http://www.hotelrealpark.com.br/" target='_blank'>Real Park</a></p>
         </div>
         <div class="span1"></div>
       </div><!--/rsvp-->
@@ -243,14 +243,14 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
                 <div class="thumbnail">
                   <img src="/static/img/sakura.png" alt="">
                   <div class="caption">
-                    <h4>Sakura</h4>
+                    <h4>Sakurá</h4>
                     <p><small>R$ 500,00</small></p>
                   </div>
                 </div>
             </li>
             </ul>
 
-            <p><strong>Dados bancários para depósito</strong> <br/> <small>Fábio Machado Diniz<br/> Banco Itaú (341) <br/> Agência: 6470 <br/> Conta: 01243-3</small></p>
+            <p><strong>Dados bancários para depósito</strong> <br/> <small>Fábio Machado Diniz<br/> Banco Itaú (341) <br/> Agência: 6470 <br/> Conta: 01243-3 <br/>CPF: 362.355.148-16</small></p>
             <p><strong>Observação</strong> <br/>
           Após o depósito (ou transferência ou DOC) pedimos a gentileza de informar por telefone ou pelo formulário abaixo.</p>
           <form id="lista_form" method=post action="/">

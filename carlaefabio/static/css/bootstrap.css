@@ -5632,11 +5632,15 @@ a.badge:hover {
 
 
 @font-face {
-  font-family: 'decorative';
-  src: url('/static/fonts/decorative.eot');
-  src: local('☺'), url('/static/fonts/decorative.woff') format('woff'), url('/static/fonts/decorative.ttf') format('truetype'), url('/static/fonts/decorative.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'parfumerie_script_decorativRg';
+    src: url('/static/fonts/decorative-webfont.eot');
+    src: url('/static/fonts/decorative-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/decorative-webfont.woff') format('woff'),
+         url('/static/fonts/decorative-webfont.ttf') format('truetype'),
+         url('/static/fonts/decorative-webfont.svg#parfumerie_script_decorativRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 @font-face {
@@ -5759,7 +5763,7 @@ img {
 
 
 .title {
-  font-family: 'decorative',cursive;
+  font-family: 'parfumerie_script_decorativRg',cursive;
   color: #af9d90;
   font-size: 130px;
   line-height: 100px;
