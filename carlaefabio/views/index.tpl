@@ -181,7 +181,7 @@ Igreja Matriz Imaculada Conceição</strong>, localizada na <a href="https://map
         <div class="span1"></div>
         <div class="span10">
           <h1 class="title">Dicas</h1>
-          <p><strong>Como chegar</strong><br/>Saindo de São Paulo, o caminho mais simples é pela Dutra (saída 165). Conforme <a href="http://goo.gl/maps/DrdWC" target='_blank'>este mapa</a>.</p>
+          <p><strong>Como chegar</strong><br/>Saindo de São Paulo, o caminho mais simples é pela Dutra (saída 167). Conforme <a href="http://goo.gl/maps/DrdWC" target='_blank'>este mapa</a>.</p>
           <p><strong>Hotéis</strong><br/>A festa será no salão do <a href="http://www.piazzahotel.com.br/" target='_blank'>Hotel Piazza</a> e os convidados que quiserem se hospedar no próprio hotel têm desconto. É só informar na hora da reserva que são convidados do casamento.</p>
           <p>Outras opções de hotel são: <a href="http://www.hotelbrisario.com.br/" target='_blank'>Brisa Rio</a> e <a href="http://www.hotelrealpark.com.br/" target='_blank'>Real Park</a></p>
         </div>
