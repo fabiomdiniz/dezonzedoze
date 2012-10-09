@@ -60,18 +60,18 @@ def index(post=0):
 def rsvp():
     if 'cota' in request.forms:
       return presente()
-    convidado = Convidado(nome=request.forms['nome-0'],
+    convidado = Convidado(nome=request.forms.getunicode('nome-0'),
                           email=request.forms['email'],
                           telefone=request.forms['telefone'],
                           presenca=request.forms['presenca']=='true',
-                          acompanhantes=[v for k, v in request.forms.items() if 'nome' in k and k != 'nome-0'])
+                          acompanhantes=[request.forms.getunicode(k) for k, v in request.forms.items() if 'nome' in k and k != 'nome-0'])
     convidado.put()
 
     sender_address = "Carla e Fábio <carlaefabio@carlaefabio.com.br>"
     subject = "[PRESENCA]"
     if convidado.presenca:
       subject += "[SIM]"
-      body = """ 
+      body = u""" 
 Confirmação de presença
 Convidado: {0} 
 Telefone: {2}
@@ -81,7 +81,7 @@ Acompanhantes:
 {1}""".format(convidado.nome, ', '.join(convidado.acompanhantes), convidado.telefone, convidado.email)
     else:
       subject += "[NAO]"
-      body = """ Convidado {0} confirma ausência""".format(convidado.nome)
+      body = u""" Convidado {0} confirma ausência""".format(convidado.nome)
     subject += convidado.nome
     
     mail.send_mail(sender_address, "carlaguill@gmail.com", subject, body)
@@ -115,18 +115,18 @@ def presente():
   else:
     valor = valores[request.forms['cota']]
 
-  presente = Presente(nome=request.forms['nome'],
-                      valor=valor, mensagem=request.forms['mensagem'])
+  presente = Presente(nome=request.forms.getunicode('nome'),
+                      valor=valor, mensagem=request.forms.getunicode('mensagem'))
 
   presente.put()
-  
-  sender_address = "Carla e Fábio <carlaefabio@carlaefabio.com.br>"
-  mail.send_mail(sender_address, "carlaguill@gmail.com", "PRESENTE ENVIADO =)", 
-                """Quem: {0} 
+  body = u"""Quem: {0} 
 Valor: R$ {1}
 
 Mensagem: 
-{2}""".format(presente.nome, presente.valor, presente.mensagem))
+{2}""".format(presente.nome, presente.valor, presente.mensagem)
+  sender_address = "Carla e Fábio <carlaefabio@carlaefabio.com.br>"
+  mail.send_mail(sender_address, "carlaguill@gmail.com", "PRESENTE ENVIADO =)", body)
+  mail.send_mail(sender_address, "fabiomachadodiniz@gmail.com", "PRESENTE ENVIADO =)", body)
 
   return index(2)
 
