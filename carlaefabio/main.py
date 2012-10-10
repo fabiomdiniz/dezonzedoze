@@ -141,12 +141,18 @@ def lista():
     redirect(users.create_login_url(request.url), 303)
 
   output = []
+  output_n = []
   num = 0
+  num_n = 0
   if users.is_current_user_admin():
-    for convidado in Convidado.all():
+    for convidado in Convidado.all().filter('presenca', True):
       output.append([convidado.nome, convidado.telefone, convidado.email, ', '.join(convidado.acompanhantes)])
       num += 1 + len(convidado.acompanhantes)
-  return {'output':output, 'num':num}
+    for convidado in Convidado.all().filter('presenca', False):
+      output_n.append([convidado.nome, convidado.telefone, convidado.email, ', '.join(convidado.acompanhantes)])
+      num_n += 1 + len(convidado.acompanhantes)
+  return {'output':output, 'num':num,
+          'output_n':output_n, 'num_n':num_n}
 
 @route('/presentes')
 @view('presentes')
